@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+header button {
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+header a {
+  text-decoration: none;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+main h2 {
+  padding-left: 50px;
+  text-align: left;
+  width: 100%;
+}
+
+main article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  width: 400px;
+  height: auto;
+  margin: 2%;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+main article div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main article h3 {
+  padding-left: 2%;
+  margin: 2%;
+}
+
+main article p {
+  padding-right: 2%;
+  margin: 2%;
+}
+
+main article img {
+  height: 300px;
+  width: 400px;
+}
+/*# sourceMappingURL=style.css.map */
