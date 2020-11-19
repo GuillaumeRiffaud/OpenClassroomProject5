@@ -1,18 +1,19 @@
 const basketButton = document.getElementById("basketButton"); //bouton du panier
 const mainBlock = document.getElementById("main");
 let products = [];
-let productAmount = 0;
-
-// basketButton.addEventListener("click", () => { // test du clic panier et affichage du nombre de produits
-//     products.push("table");
-//     productAmount = products.length;
-//     console.log(products);
-//     if (productAmount > 0) {
-//         basketButton.textContent = "Panier (" + productAmount + ")"; // affichage du nombre de produits dans le panier
-//     }
-// });
 
 
+function articleLinksToProduct() {
+    const articles = document.getElementsByTagName("article");
+    for (article of articles) {
+
+        article.addEventListener("click", (event) => {
+            localStorage.setItem("teddieId", event.currentTarget.getAttribute("id"));
+            window.location.href = "product.html";
+
+        });
+    }
+}
 
 
 let request = new XMLHttpRequest();
@@ -26,6 +27,7 @@ request.onreadystatechange = function() {
             listOfTeddies.push(newTeddie);
             mainBlock.appendChild(newTeddie.createHtmlBlock());
         }
+        articleLinksToProduct();
         return listOfTeddies;
     }
 }
@@ -46,6 +48,7 @@ class teddie {
     createHtmlBlock() {
         let articleBlock = document.createElement("article");
         articleBlock.innerHTML = "<div><h3>" + this.name + "</h3><p>" + this.price / 100 + " €</p></div>";
+        articleBlock.setAttribute("id", this._id);
 
         let imgBlock = document.createElement("img");
         articleBlock.appendChild(imgBlock);
