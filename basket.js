@@ -8,15 +8,24 @@ if (localStorage.getItem("basketContent") === null) { // vérifie si le contenu 
 let basketContent = JSON.parse(localStorage.getItem("basketContent"));
 
 
-clearBasketButton.addEventListener("click", () => {
-    basketContent = [];
-    localStorage.setItem("basketContent", JSON.stringify(basketContent));
-});
-
 function displayProducts() {
-    for (let product of basketContent) {
-        mainBlock.innerHTML += "<div>" + product + "</div>";
+    let productHTML = "";
+    if (basketContent.length > 0) {
+        for (let product of basketContent) {
+            console.log(product);
+            productHTML += "<div>" + product + "</div>";
+        }
     }
+    return productHTML;
 }
 
-displayProducts();
+mainBlock.innerHTML = displayProducts();
+
+
+clearBasketButton.addEventListener("click", () => {
+
+    basketContent = [];
+    localStorage.setItem("basketContent", JSON.stringify(basketContent));
+    console.log("Panier vidé");
+    mainBlock.innerHTML = displayProducts();
+});
