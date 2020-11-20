@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, .5);
+    padding-left: 5%;
+    padding-right: 5%;
+    button {
+        height: 50px;
+        width: 100px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+    a {
+        text-decoration: none;
+    }
+}
