@@ -20,3 +20,29 @@ header {
         text-decoration: none;
     }
 }
+
+button {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    margin-left: 100px;
+}
+
+main {
+    div {
+        max-width: 800px;
+        display: flex;
+        flex-direction: row;
+        margin: 25px 50px;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, .5);
+    }
+    img {
+        height: 70px;
+        width: 100px;
+    }
+    p {
+        margin: 0;
+        padding-right: 20px;
+    }
+}

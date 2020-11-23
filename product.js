@@ -27,7 +27,7 @@ request.send();
 
 function displayTeddieInfo() { // crée le bloc html montrant les informations du teddie consulté
     mainBlock.innerHTML = "<h2><a href='index.html'> Nos ours en peluche</a> > " + currentTeddie.name + "</h2>" +
-        "<article><div><img src='" + currentTeddie.imageUrl + "'><div><h3>" + currentTeddie.name + "</h3>" +
+        "<article><div><img src='" + currentTeddie.imageUrl + "'/><div><h3>" + currentTeddie.name + "</h3>" +
         "<select name='color' id='colorSelectMenu'></select>" +
         "<p><b>Prix:</b> " + currentTeddie.price / 100 +
         " €</p><button id='addToBasketButton'>Ajouter au Panier</button></div></div><p><b>Description:</b> " + currentTeddie.description + "</p></article>";

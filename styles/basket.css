@@ -32,4 +32,40 @@ header button {
 header a {
   text-decoration: none;
 }
+
+button {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  margin-left: 100px;
+}
+
+main div {
+  max-width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 25px 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+main img {
+  height: 70px;
+  width: 100px;
+}
+
+main p {
+  margin: 0;
+  padding-right: 20px;
+}
 /*# sourceMappingURL=basket.css.map */

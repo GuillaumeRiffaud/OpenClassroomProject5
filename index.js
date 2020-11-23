@@ -1,6 +1,7 @@
 const basketButton = document.getElementById("basketButton");
 const mainBlock = document.getElementById("main");
 let products = [];
+
 if (localStorage.getItem("basketContent") === null) { // vérifie si le contenu du panier existe en local, si non: le crée avec un tableau vide
     let emptyArray = [];
     localStorage.setItem("basketContent", JSON.stringify(emptyArray));
