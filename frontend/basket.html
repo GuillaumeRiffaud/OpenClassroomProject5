@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/basket.css" />
+    <script async src="js/basket.js"></script>
+    <title>Panier - Orinoco</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html">Orinoco</a></h1>
+    </header>
+
+
+    <main id="main">
+        <h2>Votre Panier :</h2>
+
+    </main>
+    <button id="clearBasket">Vider le panier</button>
+    <section>
+        <h2>Vos coordonnées :</h2>
+        <form id="userInfoForm" validate>
+            <div>
+                <label>Prénom*<input type="text" class="form__field" placeholder="ex: Pierre" required pattern="[A-Za-z \-'À-ÿ]{2,102}" /></label>
+            </div>
+            <div>
+                <label>Nom*<input type="text" class="form__field" placeholder="ex: Rochard" required pattern="[A-Za-z \-'À-ÿ]{2,102}" /></label>
+            </div>
+            <div>
+                <label>Adresse*<input type="text" class="form__field" placeholder="ex: 35 bvd des Capucines" required pattern="[\wÀ-ÿ /\-',]{2,300}"/></label>
+            </div>
+            <div>
+                <label>Ville*<input type="text" class="form__field" placeholder="ex: Tournan en Brie" required pattern="[\wÀ-ÿ \-',]{2,300}"/></label>
+            </div>
+            <div>
+                <label>Adresse email*<input id="email" class="form__field" placeholder="ex: pierre-rochard@gymleader.fr" type="email" required /></label>
+            </div>
+            <p>*Champs obligatoires</p>
+            <button type="submit">Commander</button>
+        </form>
+    </section>
+</body>
+
+</html>
