@@ -42,74 +42,23 @@ header h1 img {
   padding-right: 8px;
 }
 
-header button {
-  height: 50px;
-  width: 100px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
 header a {
   text-decoration: none;
 }
 
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-main h2 {
-  padding-left: 50px;
-  text-align: left;
-  width: 100%;
-}
-
-main h2 a {
-  text-decoration: none;
-}
-
-main article {
-  font-size: 20px;
-  height: 700px;
-  width: 90%;
-  margin: auto;
-  border-radius: 10px;
-  overflow: hidden;
+main div {
+  padding: 8px;
   -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+  width: 60%;
+  margin: 50px auto;
 }
 
-main article > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+main p {
+  font-size: 20px;
 }
 
-main article img {
-  height: 500px;
-  width: 700px;
+div {
+  text-align: center;
 }
-
-main article div {
-  width: 100%;
-}
-
-main article h3,
-main article p {
-  padding-left: 2%;
-}
-/*# sourceMappingURL=product.css.map */
+/*# sourceMappingURL=orderconfirm.css.map */

@@ -25,6 +25,9 @@ request.onreadystatechange = function() {
         }
         articleLinksToProduct();
         return listOfTeddies;
+    } else if (this.readyState == XMLHttpRequest.DONE && this.status != 200) {
+        mainBlock.innerHTML += `<p>Connection au serveur échouée.</p>`;
+        console.log(this.status);
     }
 }
 request.open("GET", "http://localhost:3000/api/teddies");
