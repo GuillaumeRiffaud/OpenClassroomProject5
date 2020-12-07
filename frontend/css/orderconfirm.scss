@@ -10,6 +10,12 @@ body {
     margin: 0;
 }
 
+@mixin mobiledisplay {
+    @media screen and (orientation: portrait) {
+        @content;
+    }
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -19,17 +25,27 @@ header {
     padding-left: 5%;
     padding-right: 5%;
     h1 {
-        font-size: 35px;
+        font-size: 45px;
+        font-weight: normal;
         font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
+        color: black;
         img {
             display: inline;
             height: 35px;
             width: auto;
             padding-right: 8px;
         }
+        @include mobiledisplay() {
+            font-size: 100px;
+            margin: 4%;
+            img {
+                height: 75px;
+            }
+        }
     }
     a {
         text-decoration: none;
+        color: inherit;
     }
 }
 

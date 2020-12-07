@@ -20,31 +20,46 @@ function refreshOrderButton() { // rend le bouton "commander" utilisable ou non
 }
 refreshOrderButton();
 
-if (basketContent.length > 0) {
-    for (let product of basketContent) { // affiche chaque produit du panier en html et ajoute son prix au montant à régler
-        duePrice += product.price;
-        mainBlock.innerHTML += `<ul>`;
-        mainBlock.innerHTML += `<li>
-                                            <img src="${product.imageUrl}"/>
-                                            <p>${product.name}</p>
-                                            <p>${product._id}</p>
-                                            <p>${product.price / 100} €</p>
-                                            <button>🗑️</button>
-                                        </li>`;
+function refreshBasketListDisplay() {
+    mainBlock.innerHTML = "<h2>Votre Panier :</h2>"; // réinitialise le contenu
+    duePrice = 0;
+    if (basketContent.length > 0) {
+        for (let product of basketContent) { // affiche chaque produit du panier en html et ajoute son prix au montant à régler
+            duePrice += product.price;
+            let productPositionInArray = basketContent.indexOf(product);
+            mainBlock.innerHTML += `<ul>`;
+            mainBlock.innerHTML += `<li>
+                                        <img src="${product.imageUrl}"/>
+                                        <p>${product.name}</p>
+                                        <p>${product._id}</p>
+                                        <p>${product.price / 100} €</p>
+                                        <button id="${productPositionInArray}">🗑️</button>
+                                    </li>`;
+        }
+        mainBlock.innerHTML += `</ul><div>Montant total: ${duePrice /100} €</div>`;
+        for (i = 0; i < basketContent.length; i++) {
+            let deleteButton = document.getElementById(i);
+            deleteButton.addEventListener("click", (event) => {
+                let buttonId = event.currentTarget.getAttribute("id");
+                basketContent.splice(buttonId, 1);
+                localStorage.setItem("basketContent", JSON.stringify(basketContent));
+                refreshBasketListDisplay();
+            });
+        }
+    } else {
+        mainBlock.innerHTML += `<p>Aucun article<p>`;
     }
-    mainBlock.innerHTML += `</ul><div>Montant total: ${duePrice /100} €</div>`;
-} else { //si aucun produit, réinitialise l'html
-    mainBlock.innerHTML = `<h2>Votre Panier :</h2>
-                            <p>Aucun article<p>`;
 }
+refreshBasketListDisplay();
+
+
 
 
 
 clearBasketButton.addEventListener("click", () => { // vide le contenu du panier et réinitialise l'html
     basketContent = [];
     localStorage.setItem("basketContent", JSON.stringify(basketContent));
-    mainBlock.innerHTML = `<h2>Votre Panier :</h2>
-                            <p>Aucun article<p>`;
+    refreshBasketListDisplay();
     refreshOrderButton();
 });
 
@@ -67,7 +82,7 @@ userInfoForm.addEventListener("submit", (event) => { // création de la commande
         contact,
         products,
     }
-    console.log(order);
+
     let request = new XMLHttpRequest();
     request.open("POST", "http://localhost:3000/api/teddies/order");
     request.setRequestHeader("Content-Type", "application/json");

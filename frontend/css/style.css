@@ -31,8 +31,10 @@ header {
 }
 
 header h1 {
-  font-size: 35px;
+  font-size: 45px;
+  font-weight: normal;
   font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
+  color: black;
 }
 
 header h1 img {
@@ -42,6 +44,16 @@ header h1 img {
   padding-right: 8px;
 }
 
+@media screen and (orientation: portrait) {
+  header h1 {
+    font-size: 100px;
+    margin: 4%;
+  }
+  header h1 img {
+    height: 75px;
+  }
+}
+
 header button {
   height: 50px;
   width: 100px;
@@ -49,8 +61,17 @@ header button {
   font-weight: bold;
 }
 
+@media screen and (orientation: portrait) {
+  header button {
+    height: 100px;
+    width: 200px;
+    font-size: 35px;
+  }
+}
+
 header a {
   text-decoration: none;
+  color: inherit;
 }
 
 main {
@@ -74,6 +95,12 @@ main h2 {
   width: 100%;
 }
 
+@media screen and (orientation: portrait) {
+  main {
+    font-size: 50px;
+  }
+}
+
 main article {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,6 +117,12 @@ main article {
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (orientation: portrait) {
+  main article {
+    width: 90%;
+  }
 }
 
 main article div {
@@ -118,5 +151,12 @@ main article p {
 main article img {
   height: 300px;
   width: 400px;
+}
+
+@media screen and (orientation: portrait) {
+  main article img {
+    width: 100%;
+    height: auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */

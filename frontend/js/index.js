@@ -12,26 +12,36 @@ if (basketContent.length > 0) {
     basketButton.innerText = "Panier (" + basketContent.length + ")";
 }
 
-let request = new XMLHttpRequest();
-request.onreadystatechange = function() {
-    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+let getProductFromApi = new Promise(function(resolve, reject) {
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
 
-        products = JSON.parse(this.responseText); // Place les produits dans un tableau products
-        let listOfTeddies = [];
+            resolve(request.responseText);
+
+        } else if (this.readyState == XMLHttpRequest.DONE && this.status != 200) {
+
+            reject(this.status);
+        }
+    }
+    request.open("GET", "http://localhost:3000/api/teddies");
+    request.send();
+});
+
+getProductFromApi
+    .then(function(response) {
+        products = JSON.parse(response); // Place les produits dans un tableau products
+
         for (let product of products) {
             const newTeddie = new teddie(product.colors, product._id, product.name, product.price, product.description, product.imageUrl);
-            listOfTeddies.push(newTeddie);
             mainBlock.appendChild(newTeddie.createHtmlBlock());
         }
-        articleLinksToProduct();
-        return listOfTeddies;
-    } else if (this.readyState == XMLHttpRequest.DONE && this.status != 200) {
+    })
+    .catch(function(error) {
         mainBlock.innerHTML += `<p>Connection au serveur échouée.</p>`;
-        console.log(this.status);
-    }
-}
-request.open("GET", "http://localhost:3000/api/teddies");
-request.send();
+        console.error(error);
+    });
+
 
 
 
@@ -46,25 +56,20 @@ class teddie {
     }
     createHtmlBlock() { // crée un bloc hmtl montrant les infos principales du teddie
         let articleBlock = document.createElement("article");
-        articleBlock.innerHTML = "<div><h3>" + this.name + "</h3><p>" + this.price / 100 + " €</p></div>";
+        articleBlock.innerHTML = `<div>
+                                    <h3>${this.name}</h3>
+                                    <p>${this.price / 100} €</p>
+                                </div>`;
         articleBlock.setAttribute("id", this._id);
+        articleBlock.addEventListener("click", (event) => { // article cliquable stock l'Id de l'ours concerné en local et redirige vers la page produit
+            localStorage.setItem("teddieId", event.currentTarget.getAttribute("id"));
+            window.location.href = "product.html";
+        });
 
         let imgBlock = document.createElement("img");
         articleBlock.appendChild(imgBlock);
         imgBlock.setAttribute("src", this.imageUrl);
 
         return articleBlock;
-    }
-}
-
-function articleLinksToProduct() { // stock l'id de l'ours cliqué avant de rediriger vers la page produit
-    const articles = document.getElementsByTagName("article");
-    for (article of articles) {
-
-        article.addEventListener("click", (event) => {
-            localStorage.setItem("teddieId", event.currentTarget.getAttribute("id"));
-            window.location.href = "product.html";
-
-        });
     }
 }

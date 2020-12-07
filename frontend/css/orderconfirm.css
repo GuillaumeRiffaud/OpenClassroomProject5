@@ -31,8 +31,10 @@ header {
 }
 
 header h1 {
-  font-size: 35px;
+  font-size: 45px;
+  font-weight: normal;
   font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
+  color: black;
 }
 
 header h1 img {
@@ -42,8 +44,19 @@ header h1 img {
   padding-right: 8px;
 }
 
+@media screen and (orientation: portrait) {
+  header h1 {
+    font-size: 100px;
+    margin: 4%;
+  }
+  header h1 img {
+    height: 75px;
+  }
+}
+
 header a {
   text-decoration: none;
+  color: inherit;
 }
 
 main div {

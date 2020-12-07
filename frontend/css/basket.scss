@@ -10,6 +10,12 @@ body {
     margin: 0;
 }
 
+@mixin mobiledisplay {
+    @media screen and (orientation: portrait) {
+        @content;
+    }
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -19,23 +25,27 @@ header {
     padding-left: 5%;
     padding-right: 5%;
     h1 {
-        font-size: 35px;
+        font-size: 45px;
+        font-weight: normal;
         font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
+        color: black;
         img {
             display: inline;
             height: 35px;
             width: auto;
             padding-right: 8px;
         }
-    }
-    button {
-        height: 50px;
-        width: 100px;
-        border-radius: 10px;
-        font-weight: bold;
+        @include mobiledisplay() {
+            font-size: 100px;
+            margin: 4%;
+            img {
+                height: 75px;
+            }
+        }
     }
     a {
         text-decoration: none;
+        color: inherit;
     }
 }
 
@@ -50,6 +60,9 @@ button {
 
 main {
     margin-left: 5%;
+    @include mobiledisplay() {
+        font-size: 50px;
+    }
     li {
         list-style: none;
         max-width: 800px;
@@ -63,6 +76,9 @@ main {
     div {
         font-size: 18px;
         font-weight: bold;
+        @include mobiledisplay() {
+            font-size: 50px;
+        }
     }
     button {
         margin: 0 10px 0 0;

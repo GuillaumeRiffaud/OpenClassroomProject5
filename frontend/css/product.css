@@ -31,8 +31,10 @@ header {
 }
 
 header h1 {
-  font-size: 35px;
+  font-size: 45px;
+  font-weight: normal;
   font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
+  color: black;
 }
 
 header h1 img {
@@ -42,6 +44,16 @@ header h1 img {
   padding-right: 8px;
 }
 
+@media screen and (orientation: portrait) {
+  header h1 {
+    font-size: 100px;
+    margin: 4%;
+  }
+  header h1 img {
+    height: 75px;
+  }
+}
+
 header button {
   height: 50px;
   width: 100px;
@@ -49,8 +61,17 @@ header button {
   font-weight: bold;
 }
 
+@media screen and (orientation: portrait) {
+  header button {
+    height: 100px;
+    width: 200px;
+    font-size: 35px;
+  }
+}
+
 header a {
   text-decoration: none;
+  color: inherit;
 }
 
 main {
@@ -78,15 +99,27 @@ main h2 a {
   text-decoration: none;
 }
 
+@media screen and (orientation: portrait) {
+  main {
+    font-size: 50px;
+  }
+}
+
 main article {
   font-size: 20px;
-  height: 700px;
   width: 90%;
   margin: auto;
   border-radius: 10px;
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (orientation: portrait) {
+  main article select,
+  main article button {
+    font-size: 60px;
+  }
 }
 
 main article > div {
@@ -97,6 +130,15 @@ main article > div {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (orientation: portrait) {
+  main article > div {
+    display: block;
+  }
 }
 
 main article img {
@@ -106,10 +148,18 @@ main article img {
 
 main article div {
   width: 100%;
+  text-align: center;
 }
 
 main article h3,
 main article p {
   padding-left: 2%;
+}
+
+@media screen and (orientation: portrait) {
+  main article h3,
+  main article p {
+    margin-top: 50px;
+  }
 }
 /*# sourceMappingURL=product.css.map */
