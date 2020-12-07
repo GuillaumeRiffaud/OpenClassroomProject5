@@ -31,7 +31,7 @@ function refreshBasketListDisplay() {
             mainBlock.innerHTML += `<li>
                                         <img src="${product.imageUrl}"/>
                                         <p>${product.name}</p>
-                                        <p>${product._id}</p>
+                                        <p class="ids">${product._id}</p>
                                         <p>${product.price / 100} €</p>
                                         <button id="${productPositionInArray}">🗑️</button>
                                     </li>`;

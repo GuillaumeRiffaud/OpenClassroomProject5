@@ -99,6 +99,13 @@ main li {
           box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (orientation: portrait) {
+  main li {
+    height: 150px;
+    max-width: 95%;
+  }
+}
+
 main div {
   font-size: 18px;
   font-weight: bold;
@@ -114,18 +121,51 @@ main button {
   margin: 0 10px 0 0;
 }
 
+@media screen and (orientation: portrait) {
+  main button {
+    font-size: 50px;
+    height: 80px;
+    width: 90px;
+  }
+}
+
 main img {
   height: 70px;
   width: 100px;
+}
+
+@media screen and (orientation: portrait) {
+  main img {
+    height: 100%;
+    width: auto;
+  }
 }
 
 main p {
   margin: 0;
 }
 
+@media screen and (orientation: portrait) {
+  main p.ids {
+    display: none;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  button {
+    font-size: 50px;
+  }
+}
+
 section {
   margin-left: 5%;
   font-size: 20px;
+}
+
+@media screen and (orientation: portrait) {
+  section {
+    font-size: 50px;
+  }
 }
 
 section input {
@@ -140,5 +180,22 @@ section .form__field:valid {
 
 section .form__field:invalid {
   border: 2px solid red;
+}
+
+@media screen and (orientation: portrait) {
+  section label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  section label input {
+    height: 60px;
+    width: 95%;
+    font-size: 50px;
+  }
 }
 /*# sourceMappingURL=basket.css.map */

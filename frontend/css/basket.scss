@@ -72,6 +72,10 @@ main {
         align-items: center;
         justify-content: space-between;
         box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, .5);
+        @include mobiledisplay() {
+            height: 150px;
+            max-width: 95%;
+        }
     }
     div {
         font-size: 18px;
@@ -82,19 +86,42 @@ main {
     }
     button {
         margin: 0 10px 0 0;
+        @include mobiledisplay() {
+            font-size: 50px;
+            height: 80px;
+            width: 90px;
+        }
     }
     img {
         height: 70px;
         width: 100px;
+        @include mobiledisplay() {
+            height: 100%;
+            width: auto;
+        }
     }
     p {
         margin: 0;
+        @include mobiledisplay() {
+            &.ids {
+                display: none;
+            }
+        }
+    }
+}
+
+button {
+    @include mobiledisplay() {
+        font-size: 50px;
     }
 }
 
 section {
     margin-left: 5%;
     font-size: 20px;
+    @include mobiledisplay() {
+        font-size: 50px;
+    }
     input {
         border-radius: 5px;
         padding: 5px;
@@ -105,5 +132,16 @@ section {
     }
     .form__field:invalid {
         border: 2px solid red;
+    }
+    @include mobiledisplay() {
+        label {
+            display: flex;
+            flex-direction: column;
+            input {
+                height: 60px;
+                width: 95%;
+                font-size: 50px;
+            }
+        }
     }
 }

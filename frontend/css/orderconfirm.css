@@ -67,11 +67,29 @@ main div {
   margin: 50px auto;
 }
 
+@media screen and (orientation: portrait) {
+  main div {
+    width: 90%;
+  }
+}
+
 main p {
   font-size: 20px;
 }
 
+@media screen and (orientation: portrait) {
+  main p {
+    font-size: 50px;
+  }
+}
+
 div {
   text-align: center;
+}
+
+@media screen and (orientation: portrait) {
+  div {
+    font-size: 50px;
+  }
 }
 /*# sourceMappingURL=orderconfirm.css.map */

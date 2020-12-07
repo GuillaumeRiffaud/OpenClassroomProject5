@@ -108,6 +108,7 @@ main h2 a {
 main article {
   font-size: 20px;
   width: 90%;
+  max-width: 1200px;
   margin: auto;
   border-radius: 10px;
   overflow: hidden;
