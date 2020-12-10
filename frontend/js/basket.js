@@ -1,34 +1,23 @@
-const mainBlock = document.getElementById("main");
-const clearBasketButton = document.getElementById("clearBasket");
-const sendOrderButton = document.getElementById("sendOrderButton");
-const userInfoForm = document.getElementById("userInfoForm");
-let duePrice = 0;
-
-if (localStorage.getItem("basketContent") === null) { // vérifie si le contenu du panier existe en local, si non: le crée avec un tableau vide
-    let emptyArray = [];
-    localStorage.setItem("basketContent", JSON.stringify(emptyArray));
-}
-let basketContent = JSON.parse(localStorage.getItem("basketContent"));
-
-
 function refreshOrderButton() { // rend le bouton "commander" utilisable ou non
+    let basketContent = JSON.parse(localStorage.getItem("basketContent"));
     if (basketContent.length > 0) {
-        sendOrderButton.setAttribute("enabled", true);
+        document.getElementById("sendOrderButton").setAttribute("enabled", true);
     } else {
-        sendOrderButton.setAttribute("disabled", true);
+        document.getElementById("sendOrderButton").setAttribute("disabled", true);
     }
 }
-refreshOrderButton();
+
 
 function refreshBasketListDisplay() {
-    mainBlock.innerHTML = "<h2>Votre Panier :</h2>"; // réinitialise le contenu
-    duePrice = 0;
+    document.getElementById("main").innerHTML = "<h2>Votre Panier :</h2>"; // réinitialise le contenu
+    let duePrice = 0;
+    let basketContent = JSON.parse(localStorage.getItem("basketContent"));
     if (basketContent.length > 0) {
         for (let product of basketContent) { // affiche chaque produit du panier en html et ajoute son prix au montant à régler
             duePrice += product.price;
             let productPositionInArray = basketContent.indexOf(product);
-            mainBlock.innerHTML += `<ul>`;
-            mainBlock.innerHTML += `<li>
+            document.getElementById("main").innerHTML += `<ul>`;
+            document.getElementById("main").innerHTML += `<li>
                                         <img src="${product.imageUrl}"/>
                                         <p>${product.name}</p>
                                         <p class="ids">${product._id}</p>
@@ -36,8 +25,8 @@ function refreshBasketListDisplay() {
                                         <button id="${productPositionInArray}">🗑️</button>
                                     </li>`;
         }
-        mainBlock.innerHTML += `</ul><div>Montant total: ${duePrice /100} €</div>`;
-        for (i = 0; i < basketContent.length; i++) {
+        document.getElementById("main").innerHTML += `</ul><div>Montant total: ${duePrice /100} €</div>`;
+        for (i = 0; i < basketContent.length; i++) { // permet au bouton poubelle de supprimer le produit d'index égal à son id
             let deleteButton = document.getElementById(i);
             deleteButton.addEventListener("click", (event) => {
                 let buttonId = event.currentTarget.getAttribute("id");
@@ -47,24 +36,24 @@ function refreshBasketListDisplay() {
             });
         }
     } else {
-        mainBlock.innerHTML += `<p>Aucun article<p>`;
+        document.getElementById("main").innerHTML += `<p>Aucun article<p>`;
     }
 }
-refreshBasketListDisplay();
 
 
 
 
 
-clearBasketButton.addEventListener("click", () => { // vide le contenu du panier et réinitialise l'html
-    basketContent = [];
+
+document.getElementById("clearBasket").addEventListener("click", () => { // vide le contenu du panier et réinitialise l'html
+    let basketContent = [];
     localStorage.setItem("basketContent", JSON.stringify(basketContent));
     refreshBasketListDisplay();
     refreshOrderButton();
 });
 
 
-userInfoForm.addEventListener("submit", (event) => { // création de la commande et envoi
+document.getElementById("userInfoForm").addEventListener("submit", (event) => { // création de la commande et envoi
     event.preventDefault();
     event.stopPropagation();
     const contact = {
@@ -75,6 +64,7 @@ userInfoForm.addEventListener("submit", (event) => { // création de la commande
         email: document.getElementById("userEmail").value
     }
     let products = [];
+    let basketContent = JSON.parse(localStorage.getItem("basketContent"));
     for (let product of basketContent) {
         products.push(product._id);
     }
@@ -92,7 +82,7 @@ userInfoForm.addEventListener("submit", (event) => { // création de la commande
             localStorage.setItem("Order", this.responseText);
             window.location.href = "orderconfirm.html";
         } else if (this.readyState == XMLHttpRequest.DONE && this.status != 201) {
-            mainBlock.innerHTML += `<p>Échec de l'envoi de la commande</p>`;
+            document.getElementById("main").innerHTML += `<p>Échec de l'envoi de la commande</p>`;
             console.log(this.status);
         }
     }

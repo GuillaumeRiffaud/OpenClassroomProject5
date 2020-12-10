@@ -6,8 +6,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "montserra_regular";
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
+  font-family: 'montserra_regular', Arial, Helvetica, sans-serif;
 }
 
 header {

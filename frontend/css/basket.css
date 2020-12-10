@@ -6,8 +6,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "montserra_regular";
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
+  font-family: 'montserra_regular', Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -172,6 +180,7 @@ section input {
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
+  width: 50%;
 }
 
 section .form__field:valid {
@@ -182,16 +191,17 @@ section .form__field:invalid {
   border: 2px solid red;
 }
 
+section label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 @media screen and (orientation: portrait) {
-  section label {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
   section label input {
     height: 60px;
     width: 95%;

@@ -1,18 +1,4 @@
-const basketButton = document.getElementById("basketButton");
-const mainBlock = document.getElementById("main");
-let products = [];
-
-if (localStorage.getItem("basketContent") === null) { // vérifie si le contenu du panier existe en local, si non: le crée avec un tableau vide
-    let emptyArray = [];
-    localStorage.setItem("basketContent", JSON.stringify(emptyArray));
-}
-let basketContent = JSON.parse(localStorage.getItem("basketContent"));
-
-if (basketContent.length > 0) {
-    basketButton.innerText = "Panier (" + basketContent.length + ")";
-}
-
-let getProductFromApi = new Promise(function(resolve, reject) {
+let getListOfProductsFromApi = new Promise(function(resolve, reject) {
     let request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
@@ -28,24 +14,24 @@ let getProductFromApi = new Promise(function(resolve, reject) {
     request.send();
 });
 
-getProductFromApi
+getListOfProductsFromApi
     .then(function(response) {
-        products = JSON.parse(response); // Place les produits dans un tableau products
+        let products = JSON.parse(response); // Place les produits dans un tableau products
 
         for (let product of products) {
-            const newTeddie = new teddie(product.colors, product._id, product.name, product.price, product.description, product.imageUrl);
-            mainBlock.appendChild(newTeddie.createHtmlBlock());
+            const newTeddie = new Teddie(product.colors, product._id, product.name, product.price, product.description, product.imageUrl);
+            document.getElementById("main").appendChild(newTeddie.createHtmlBlock());
         }
     })
     .catch(function(error) {
-        mainBlock.innerHTML += `<p>Connection au serveur échouée.</p>`;
+        document.getElementById("main").innerHTML += `<p>Connection au serveur échouée.</p>`;
         console.error(error);
     });
 
 
 
 
-class teddie {
+class Teddie {
     constructor(colors, _id, name, price, description, imageUrl) {
         this.colors = colors;
         this.price = price;

@@ -1,147 +1,156 @@
-@font-face {
-    font-family: 'belligerent_madnessregular';
-    src: url('../fonts/belligerent-webfont.eot');
-    src: url('../fonts/belligerent-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/belligerent-webfont.woff') format('woff'), url('../fonts/belligerent-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-body {
-    margin: 0;
-}
-
-@mixin mobiledisplay {
-    @media screen and (orientation: portrait) {
-        @content;
-    }
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, .5);
-    padding-left: 5%;
-    padding-right: 5%;
-    h1 {
-        font-size: 45px;
+    @font-face {
+        font-family: 'belligerent_madnessregular';
+        src: url('../fonts/belligerent-webfont.eot');
+        src: url('../fonts/belligerent-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/belligerent-webfont.woff') format('woff'), url('../fonts/belligerent-webfont.ttf') format('truetype');
         font-weight: normal;
-        font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
-        color: black;
-        img {
-            display: inline;
-            height: 35px;
-            width: auto;
-            padding-right: 8px;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: "montserra_regular";
+        src: url('../fonts/Montserrat-Regular.ttf');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    body {
+        margin: 0;
+        font-family: 'montserra_regular', Arial, Helvetica, sans-serif;
+    }
+    
+    @mixin mobiledisplay {
+        @media screen and (orientation: portrait) {
+            @content;
         }
-        @include mobiledisplay() {
-            font-size: 100px;
-            margin: 4%;
-            img {
-                height: 75px;
-            }
-        }
     }
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-}
-
-button {
-    margin-top: 30px;
-    margin-bottom: 25px;
-    margin-left: 100px;
-    font-size: 18px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-main {
-    margin-left: 5%;
-    @include mobiledisplay() {
-        font-size: 50px;
-    }
-    li {
-        list-style: none;
-        max-width: 800px;
+    
+    header {
         display: flex;
         flex-direction: row;
-        margin: 25px 50px;
-        align-items: center;
         justify-content: space-between;
+        align-items: baseline;
         box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, .5);
-        @include mobiledisplay() {
-            height: 150px;
-            max-width: 95%;
-        }
-    }
-    div {
-        font-size: 18px;
-        font-weight: bold;
-        @include mobiledisplay() {
-            font-size: 50px;
-        }
-    }
-    button {
-        margin: 0 10px 0 0;
-        @include mobiledisplay() {
-            font-size: 50px;
-            height: 80px;
-            width: 90px;
-        }
-    }
-    img {
-        height: 70px;
-        width: 100px;
-        @include mobiledisplay() {
-            height: 100%;
-            width: auto;
-        }
-    }
-    p {
-        margin: 0;
-        @include mobiledisplay() {
-            &.ids {
-                display: none;
+        padding-left: 5%;
+        padding-right: 5%;
+        h1 {
+            font-size: 45px;
+            font-weight: normal;
+            font-family: 'belligerent_madnessregular', Arial, Helvetica, sans-serif;
+            color: black;
+            img {
+                display: inline;
+                height: 35px;
+                width: auto;
+                padding-right: 8px;
+            }
+            @include mobiledisplay() {
+                font-size: 100px;
+                margin: 4%;
+                img {
+                    height: 75px;
+                }
             }
         }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
     }
-}
-
-button {
-    @include mobiledisplay() {
-        font-size: 50px;
+    
+    button {
+        margin-top: 30px;
+        margin-bottom: 25px;
+        margin-left: 100px;
+        font-size: 18px;
+        border-radius: 10px;
+        font-weight: bold;
     }
-}
-
-section {
-    margin-left: 5%;
-    font-size: 20px;
-    @include mobiledisplay() {
-        font-size: 50px;
-    }
-    input {
-        border-radius: 5px;
-        padding: 5px;
-        margin: 5px;
-    }
-    .form__field:valid {
-        border: 2px solid green;
-    }
-    .form__field:invalid {
-        border: 2px solid red;
-    }
-    @include mobiledisplay() {
-        label {
+    
+    main {
+        margin-left: 5%;
+        @include mobiledisplay() {
+            font-size: 50px;
+        }
+        li {
+            list-style: none;
+            max-width: 800px;
             display: flex;
-            flex-direction: column;
-            input {
-                height: 60px;
-                width: 95%;
+            flex-direction: row;
+            margin: 25px 50px;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, .5);
+            @include mobiledisplay() {
+                height: 150px;
+                max-width: 95%;
+            }
+        }
+        div {
+            font-size: 18px;
+            font-weight: bold;
+            @include mobiledisplay() {
                 font-size: 50px;
             }
         }
+        button {
+            margin: 0 10px 0 0;
+            @include mobiledisplay() {
+                font-size: 50px;
+                height: 80px;
+                width: 90px;
+            }
+        }
+        img {
+            height: 70px;
+            width: 100px;
+            @include mobiledisplay() {
+                height: 100%;
+                width: auto;
+            }
+        }
+        p {
+            margin: 0;
+            @include mobiledisplay() {
+                &.ids {
+                    display: none;
+                }
+            }
+        }
     }
-}
+    
+    button {
+        @include mobiledisplay() {
+            font-size: 50px;
+        }
+    }
+    
+    section {
+        margin-left: 5%;
+        font-size: 20px;
+        @include mobiledisplay() {
+            font-size: 50px;
+        }
+        input {
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            width: 50%;
+        }
+        .form__field:valid {
+            border: 2px solid green;
+        }
+        .form__field:invalid {
+            border: 2px solid red;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            @include mobiledisplay() {
+                input {
+                    height: 60px;
+                    width: 95%;
+                    font-size: 50px;
+                }
+            }
+        }
+    }
