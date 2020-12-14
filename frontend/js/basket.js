@@ -1,9 +1,10 @@
-function refreshOrderButton() { // rend le bouton "commander" utilisable ou non
+function refreshButtons() { // rend le bouton "commander" utilisable ou non
     let basketContent = JSON.parse(localStorage.getItem("basketContent"));
     if (basketContent.length > 0) {
         document.getElementById("sendOrderButton").setAttribute("enabled", true);
     } else {
         document.getElementById("sendOrderButton").setAttribute("disabled", true);
+        document.getElementById("clearBasket").setAttribute("disabled", true);
     }
 }
 
@@ -32,6 +33,7 @@ function refreshBasketListDisplay() {
                 let buttonId = event.currentTarget.getAttribute("id");
                 basketContent.splice(buttonId, 1);
                 localStorage.setItem("basketContent", JSON.stringify(basketContent));
+                refreshButtons();
                 refreshBasketListDisplay();
             });
         }
@@ -49,7 +51,7 @@ document.getElementById("clearBasket").addEventListener("click", () => { // vide
     let basketContent = [];
     localStorage.setItem("basketContent", JSON.stringify(basketContent));
     refreshBasketListDisplay();
-    refreshOrderButton();
+    refreshButtons();
 });
 
 

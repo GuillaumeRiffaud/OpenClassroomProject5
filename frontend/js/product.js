@@ -41,6 +41,8 @@ getProductFromApi
             basketContent.push(currentTeddie);
             localStorage.setItem("basketContent", JSON.stringify(basketContent));
             document.getElementById("basketButton").innerText = "Panier (" + basketContent.length + ")";
+            document.getElementById("basketButton").removeAttribute("disabled");
+            document.getElementById("basketButton").setAttribute("enabled", true);
         });
     })
     .catch(function(error) {
