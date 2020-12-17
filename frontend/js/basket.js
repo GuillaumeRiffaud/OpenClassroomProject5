@@ -39,6 +39,7 @@ function refreshBasketListDisplay() {
         }
     } else {
         document.getElementById("main").innerHTML += `<p>Aucun article<p>`;
+        window.location.href = "index.html";
     }
 }
 
@@ -52,6 +53,7 @@ document.getElementById("clearBasket").addEventListener("click", () => { // vide
     localStorage.setItem("basketContent", JSON.stringify(basketContent));
     refreshBasketListDisplay();
     refreshButtons();
+    window.location.href = "index.html";
 });
 
 
