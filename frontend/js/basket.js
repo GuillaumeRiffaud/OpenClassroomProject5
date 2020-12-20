@@ -56,6 +56,29 @@ document.getElementById("clearBasket").addEventListener("click", () => { // vide
     window.location.href = "index.html";
 });
 
+function setValidity(id, message, regex) {
+    document.getElementById(id).addEventListener('change', (event) => {
+        if (regex.test(event.target.value)) {
+            event.target.setCustomValidity("");
+            console.log('validé');
+        } else {
+            event.target.setCustomValidity(message);
+            console.log('non validé');
+        }
+    });
+}
+
+function formInputValidation() {
+    const namesRegex = /^[A-Za-z \-'À-ÿ]{2,102}$/;
+    const locationRegex = /^[\wÀ-ÿ /\-',]{2,300}$/;
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    setValidity('userFirstName', "Ne doit contenir que des lettres ou tirets", namesRegex);
+    setValidity('userName', "Ne doit contenir que des lettres ou tirets", namesRegex);
+    setValidity('userLocation', "Ne doit contenir que des lettres, tirets, barres obliques, apostrophes ou chiffres", locationRegex);
+    setValidity('userTown', "Ne doit contenir que des lettres, tirets, barres obliques, apostrophes ou chiffres", locationRegex);
+    setValidity('userEmail', "Doit contenir une adresse email valide", emailRegex);
+}
+
 
 document.getElementById("userInfoForm").addEventListener("submit", (event) => { // création de la commande et envoi
     event.preventDefault();

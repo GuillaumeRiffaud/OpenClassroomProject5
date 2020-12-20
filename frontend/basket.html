@@ -9,7 +9,7 @@
     <title>Panier - Orinoco</title>
 </head>
 
-<body onload="checkBasketExists();refreshButtons();refreshBasketListDisplay();">
+<body onload="checkBasketExists();refreshButtons();refreshBasketListDisplay();formInputValidation();">
     <header>
         <h1>
             <a href="index.html"><img src="images/shopping-cart-solid.svg" alt="logo d'orinoco" />Orinoco</a>
@@ -26,19 +26,19 @@
         <h2>Vos coordonnées :</h2>
         <form id="userInfoForm" validate>
             <div>
-                <label>Prénom*<input type="text" id="userFirstName" class="form__field" placeholder="ex: Pierre" required pattern="[A-Za-z \-'À-ÿ]{2,102}" /></label>
+                <label>Prénom*<input type="text" id="userFirstName" class="form__field" placeholder="ex: Pierre" required /></label>
             </div>
             <div>
-                <label>Nom*<input type="text" id="userName" class="form__field" placeholder="ex: Rochard" required pattern="[A-Za-z \-'À-ÿ]{2,102}" /></label>
+                <label>Nom*<input type="text" id="userName" class="form__field" placeholder="ex: Rochard" required  /></label>
             </div>
             <div>
-                <label>Adresse*<input type="text" id="userLocation" class="form__field" placeholder="ex: 35 bvd des Capucines" required pattern="[\wÀ-ÿ /\-',]{2,300}"/></label>
+                <label>Adresse*<input type="text" id="userLocation" class="form__field" placeholder="ex: 35 bvd des Capucines" required /></label>
             </div>
             <div>
-                <label>Ville*<input type="text" id="userTown" class="form__field" placeholder="ex: Tournan en Brie" required pattern="[\wÀ-ÿ \-',]{2,300}"/></label>
+                <label>Ville*<input type="text" id="userTown" class="form__field" placeholder="ex: Tournan en Brie" required /></label>
             </div>
             <div>
-                <label>Adresse email*<input id="userEmail" class="form__field" placeholder="ex: pierre-rochard@gymleader.fr" type="email" required /></label>
+                <label>Adresse email*<input id="userEmail" class="form__field" placeholder="ex: pierre-rochard@gymleader.fr" required /></label>
             </div>
             <p>*Champs obligatoires</p>
             <button id="sendOrderButton" type="submit">Commander</button>
